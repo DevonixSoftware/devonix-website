@@ -1,0 +1,582 @@
+/* Branding Kit */
+/*
+Logo Concepts:
+1. Modern tech style: "Devonix" in sleek sans-serif font with a subtle circuit board pattern in the background.
+2. Geometric: "D" and "X" from Devonix stylized as interconnected digital nodes.
+3. Minimalist: Clean "Devonix" with a gradient from blue to purple, symbolizing tech evolution.
+4. Futuristic: "Devonix" with glowing neon effect and digital particles.
+5. Corporate: Professional "Devonix" with a subtle gear icon integrated.
+
+Color Palette (Tech + Futuristic):
+- Primary: #2563eb (Blue)
+- Secondary: #7c3aed (Purple)
+- Accent: #06b6d4 (Cyan)
+- Dark: #1f2937 (Gray-800)
+- Light: #f9fafb (Gray-50)
+- Text: #111827 (Gray-900)
+- Background: #ffffff (White) / #0f172a (Slate-900) for dark sections
+
+Typography System:
+- Headings: Montserrat (600, 700)
+- Body: Roboto (300, 400, 500)
+- Font sizes: h1: 3rem, h2: 2.5rem, h3: 2rem, p: 1rem
+
+Buttons Styles:
+- Primary: Blue background, white text, rounded corners, shadow
+- Secondary: Purple border, purple text, white background
+
+Cards: White background, subtle shadow, rounded corners, hover effects
+
+Shadows: Soft box-shadow for depth
+
+Grid Layout: Flexbox and CSS Grid for responsive layouts
+
+UI Components: Consistent spacing (1rem base), transitions for interactions
+*/
+
+/* Reset and Base Styles */
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #111827;
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #7c3aed;
+    border: 2px solid #7c3aed;
+}
+
+.btn-secondary:hover {
+    background-color: #7c3aed;
+    color: #ffffff;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.transparent-header {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: #2563eb;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #111827;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #2563eb;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    position: relative;
+    color: #ffffff;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(6,182,212,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Sections */
+section {
+    padding: 5rem 0;
+}
+
+.about, .services, .solutions, .training, .contact {
+    background-color: #f9fafb;
+}
+
+.vision-mission {
+    background-color: #ffffff;
+}
+
+.about-enterprise {
+    background: #f8f9fb;
+    padding: 100px 5%;
+    color: #1a1a1a;
+}
+
+.enterprise-container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.enterprise-header {
+    max-width: 800px;
+    margin-bottom: 70px;
+}
+
+.enterprise-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.enterprise-header p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.enterprise-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+}
+
+/* Content */
+.enterprise-content .block {
+    margin-bottom: 35px;
+}
+
+.enterprise-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #0033a0;
+}
+
+.enterprise-content p {
+    color: #444;
+    line-height: 1.7;
+}
+
+.enterprise-content ul {
+    padding-left: 18px;
+}
+
+.enterprise-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Timeline */
+.enterprise-timeline {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.enterprise-timeline h3 {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.timeline-row {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0;
+    border-left: 3px solid #0033a0;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.timeline-row span {
+    font-weight: 700;
+    color: #0033a0;
+    min-width: 60px;
+}
+
+.timeline-row p {
+    color: #444;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .enterprise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .enterprise-header h2 {
+        font-size: 34px;
+    }
+}
+
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: #2563eb;
+}
+
+/* Solutions Grid */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.solution-item {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.solution-item h3 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+/* Vision, Mission, Values */
+.vmv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.vmv-item {
+    background-color: #f9fafb;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.vmv-item h3 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+.vmv-item ul {
+    list-style: none;
+    text-align: left;
+}
+
+.vmv-item li {
+    margin-bottom: 0.5rem;
+}
+
+/* Training Grid */
+.training-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.training-item {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.training-item h3 {
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+/* Contact */
+.contact .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.contact-info {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.social-icon {
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.map-placeholder {
+    background-color: #f9fafb;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Footer */
+.footer {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    color: #06b6d4;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #06b6d4;
+}
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links a {
+    margin-left: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 1rem 0 0;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about .container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact .container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeInUp 0.6s ease-out;
+}
