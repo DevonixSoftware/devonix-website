@@ -9,6 +9,9 @@
     <meta property="og:title" content="Devonix - Empowering Digital Futures">
     <meta property="og:description" content="Innovative tech company providing advanced software solutions for businesses.">
     <meta property="og:image" content="https://devonix.com/logo.png">
+    <meta property="og:description" content="Explore our full project and solutions online.">
+    <meta property="og:image" content="https://salamaashri.github.io/Devonix/logo.png">
+    <meta property="og:url" content="https://salamaashri.github.io/Devonix/">
     <meta property="og:url" content="https://devonix.com">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,142 +21,181 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="header" class="transparent-header">
-        <div class="container">
-            <div class="logo">
-                <h1>Devonix</h1>
-                
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#training">Training</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Request a Demo</a>
-                <a href="#contact" class="btn btn-secondary">Get a Quote</a>
-            </div>
+  
+  <!-- Header -->
+<header id="header" class="transparent-header" style="position:fixed; top:0; width:100%; z-index:10; background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:10px 20px;">
+        <div class="logo">
+            <a href="#home">
+                <img src="images/logo.png" alt="Devonix Logo" style="height:60px;">
+            </a>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <h1>Empowering Digital Futures</h1>
-            <p>Devonix is an innovative technology company dedicated to delivering advanced software solutions that drive growth, efficiency, and digital transformation for businesses of all sizes.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">Our Services</a>
-                <a href="#contact" class="btn btn-secondary">Contact Us</a>
-            </div>
+        
+        <nav>
+            <ul style="display:flex; gap:15px; list-style:none; margin:0; padding:0;">
+                <li><a href="#home" style="color:white; text-decoration:none;">Home</a></li>
+                <li><a href="#about" style="color:white; text-decoration:none;">About</a></li>
+                <li><a href="#services" style="color:white; text-decoration:none;">Services</a></li>
+                <li><a href="#solutions" style="color:white; text-decoration:none;">Solutions</a></li>
+                <li><a href="#products" style="color:white; text-decoration:none;">Products</a></li>
+                <li><a href="#training" style="color:white; text-decoration:none;">Training</a></li>
+                <li><a href="#contact" style="color:white; text-decoration:none;">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cta-buttons" style="display:flex; gap:10px;">
+            <a href="#contact" class="btn btn-primary">Request a Demo</a>
+            <a href="#contact" class="btn btn-secondary">Get a Quote</a>
         </div>
-    </section>
+    </div>
+</header>
 
-   <section id="about" class="about-enterprise">
-    <div class="enterprise-container">
 
-        <div class="enterprise-header">
-            <h2>About Devonix</h2>
-            <p>
+  <!-- Hero Section -->
+<section id="home" class="hero" style="position:relative; overflow:hidden; background:transparent;">
+    <!-- الفيديو -->
+    <video id="heroVideo" autoplay muted loop playsinline 
+        style="position:absolute; top:0; left:0; width:100%; height:150%; object-fit:cover; z-index:-1;">
+        <source src="images/DevonixCampany.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- إزالة overlay أو جعله شفاف -->
+    <div class="hero-overlay" style="position:absolute; top:0; left:0; width:100%; height:100%; background: transparent; z-index:-1;"></div>
+
+    <div class="container" style="position:relative; z-index:1; text-align:center; color:white;">
+
+        <div class="hero-buttons">
+            <a href="#services" class="btn btn-primary">Our Services</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+
+        <button id="soundButton" class="btn btn-secondary" style="margin-top:20px;">تشغيل الصوت</button>
+    </div>
+</section>
+
+
+<!-- سكريبت التحكم في الصوت -->
+<script>
+    const video = document.getElementById('heroVideo');
+    const soundButton = document.getElementById('soundButton');
+
+    soundButton.addEventListener('click', () => {
+        if(video.muted){
+            video.muted = false;
+            soundButton.textContent = "إيقاف الصوت";
+        } else {
+            video.muted = true;
+            soundButton.textContent = "تشغيل الصوت";
+        }
+    });
+</script>
+
+
+           <!-- About Section -->
+<section id="about" class="about-enterprise" style="position:relative; z-index:1; background-color:#fff; padding:80px 20px; font-family:'Roboto', sans-serif;">
+    <div class="enterprise-container" style="max-width:1200px; margin:0 auto;">
+
+        <!-- Header -->
+        <div class="enterprise-header" style="text-align:center; margin-bottom:50px;">
+            <h2 style="font-size:2.5rem; margin-bottom:15px; color:#222;">About Devonix</h2>
+            <p style="font-size:1.1rem; color:#555; line-height:1.6;">
                 We help organizations build reliable, scalable, and secure digital systems
                 that support long-term growth and digital transformation.
             </p>
         </div>
 
-        <div class="enterprise-grid">
-
-            <!-- Content -->
-            <div class="enterprise-content">
-
-                <div class="block">
-                    <h3>Our Story</h3>
-                    <p>
-                        Founded with a vision to bridge the gap between technology and business needs,
-                        Devonix has grown into a trusted provider of enterprise software solutions.
-                    </p>
-                </div>
-
-                <div class="block">
-                    <h3>Who We Are</h3>
-                    <p>
-                        Devonix is a technology-driven company delivering enterprise-grade
-                        software solutions for businesses of all sizes.
-                    </p>
-                </div>
-
-                <div class="block">
-                    <h3>What Makes Us Different</h3>
-                    <p>
-                        We combine strong engineering practices, modern technologies,
-                        and deep business understanding to deliver measurable results.
-                    </p>
-                </div>
-
-                <div class="block">
-                    <h3>Company Strengths</h3>
-                    <ul>
-                        <li>Senior engineers and solution architects</li>
-                        <li>Proven delivery of complex enterprise systems</li>
-                        <li>Secure and scalable architectures</li>
-                        <li>Long-term support and partnership model</li>
-                    </ul>
-                </div>
-
-                <div class="block">
-                    <h3>Technology Stack</h3>
-                    <p>
-                        .NET, React, Node.js, Python, AI/ML, Azure, AWS,
-                        SQL & NoSQL Databases
-                    </p>
-                </div>
-
+        <!-- Content Blocks -->
+        <div class="enterprise-content" style="display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-bottom:50px;">
+            <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                <h3 style="color:#222; margin-bottom:10px;">Our Story</h3>
+                <p style="color:#555; line-height:1.6;">
+                    Founded with a vision to bridge the gap between technology and business needs,
+                    Devonix has grown into a trusted provider of enterprise software solutions.
+                </p>
             </div>
 
-            <!-- Timeline -->
-            <div class="enterprise-timeline">
-                <h3>Milestones</h3>
-
-                <div class="timeline-row">
-                    <span>2020</span>
-                    <p>Company Founded</p>
-                </div>
-
-                <div class="timeline-row">
-                    <span>2021</span>
-                    <p>First AI-Based Solution Delivered</p>
-                </div>
-
-                <div class="timeline-row">
-                    <span>2022</span>
-                    <p>Enterprise & Mobile Expansion</p>
-                </div>
-
-                <div class="timeline-row">
-                    <span>2023</span>
-                    <p>100+ Enterprise Projects Delivered</p>
-                </div>
-                <div class="timeline-row">
-               <span>2024</span>
-               <p>Global Market Expansion & Cloud Services Launch</p>
-                 </div>
-
-                <div class="timeline-row">
-                   <span>2025</span>
-             <p>AI-Powered Enterprise Solutions & Strategic Partnerships</p>
-</div>
-
+            <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                <h3 style="color:#222; margin-bottom:10px;">Who We Are</h3>
+                <p style="color:#555; line-height:1.6;">
+                    Devonix is a technology-driven company delivering enterprise-grade
+                    software solutions for businesses of all sizes.
+                </p>
             </div>
 
+            <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                <h3 style="color:#222; margin-bottom:10px;">What Makes Us Different</h3>
+                <p style="color:#555; line-height:1.6;">
+                    We combine strong engineering practices, modern technologies,
+                    and deep business understanding to deliver measurable results.
+                </p>
+            </div>
+
+            <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                <h3 style="color:#222; margin-bottom:10px;">Company Strengths</h3>
+                <ul style="color:#555; line-height:1.6; padding-left:20px;">
+                    <li>Senior engineers and solution architects</li>
+                    <li>Proven delivery of complex enterprise systems</li>
+                    <li>Secure and scalable architectures</li>
+                    <li>Long-term support and partnership model</li>
+                </ul>
+            </div>
+
+            <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                <h3 style="color:#222; margin-bottom:10px;">Technology Stack</h3>
+                <p style="color:#555; line-height:1.6;">
+                 🧰 Technology & Engineering Approach
+
+              At Devonix, we adopt a **technology-agnostic approach**, leveraging the most suitable tools and frameworks based on each client’s requirements and business objectives.
+              
+                Our core technology stack includes:
+              - **Backend & Enterprise Platforms:** .NET (C#), SQL Server, AI / Machine Learning  
+              - **Frontend Technologies:** Angular, React, responsive UI architectures  
+              - **Cloud & Infrastructure:** Microsoft Azure, AWS, cloud-native & hybrid architectures  
+              - **Databases:** SQL Server, NoSQL databases for scalable and secure systems  
+              
+              We remain flexible to select additional technologies depending on project needs, ensuring future-ready solutions.
+                </p>
+            </div>
         </div>
-    </div>
+
+        <!-- Timeline -->
+        <!-- <div class="enterprise-timeline" style="max-width:900px; margin:0 auto;">
+            <h3 style="text-align:center; font-size:2rem; margin-bottom:30px; color:#222;">Milestones</h3>
+
+            <div class="timeline-row" style="display:flex; gap:20px; margin-bottom:15px;">
+                <span style="font-weight:bold; color:#007BFF; min-width:70px;">2020</span>
+                <p style="color:#555; margin:0;">Company Founded</p>
+            </div>
+
+            <div class="timeline-row" style="display:flex; gap:20px; margin-bottom:15px;">
+                <span style="font-weight:bold; color:#007BFF; min-width:70px;">2021</span>
+                <p style="color:#555; margin:0;">First AI-Based Solution Delivered</p>
+            </div>
+
+            <div class="timeline-row" style="display:flex; gap:20px; margin-bottom:15px;">
+                <span style="font-weight:bold; color:#007BFF; min-width:70px;">2022</span>
+                <p style="color:#555; margin:0;">Enterprise & Mobile Expansion</p>
+            </div>
+
+            <div class="timeline-row" style="display:flex; gap:20px; margin-bottom:15px;">
+                <span style="font-weight:bold; color:#007BFF; min-width:70px;">2023</span>
+                <p style="color:#555; margin:0;">100+ Enterprise Projects Delivered</p>
+            </div>
+
+            <div class="timeline-row" style="display:flex; gap:20px; margin-bottom:15px;">
+                <span style="font-weight:bold; color:#007BFF; min-width:70px;">2024</span>
+                <p style="color:#555; margin:0;">Global Market Expansion & Cloud Services Launch</p>
+            </div>
+
+            <div class="timeline-row" style="display:flex; gap:20px; margin-bottom:15px;">
+                <span style="font-weight:bold; color:#007BFF; min-width:70px;">2025</span>
+                <p style="color:#555; margin:0;">AI-Powered Enterprise Solutions & Strategic Partnerships</p>
+            </div>
+        </div>
+
+    </div> -->
 </section>
+
 
 
     <!-- Services Section -->
@@ -316,40 +358,62 @@
             <!-- Contact Info -->
             <div class="contact-info">
                 <ul>
-    <li><i class="fas fa-envelope"></i> <a href="mailto:devonix.com@gmail.com">devonix.com@gmail.com</a></li>
-    <li><i class="fas fa-phone"></i> <a href="tel:+201064661217">+20 106 466 1217</a></li>
-    <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/company/devonix-com/" target="_blank">Follow us on LinkedIn</a></li>
-    <li>Facebook: <a href="https://www.facebook.com/share/1BWHqKNp3s/" target="_blank">Visit our Facebook Page</a></li>
+    
+    <li><i class="fas fa-phone"></i>Phone & WhatsApp : <a href="tel:+201064661217">+20 106 466 1217</a></li>
+    <li><i class="fas fa-envelope"></i> Email : <a href="mailto:devonix.com@gmail.com">devonix.com@gmail.com</a></li>
+    <li> GitHub Organization:
+  <a href="https://github.com/DevonixSoftware" target="_blank">
+    github.com/DevonixSoftware
+  </a>
+</li>
+    <li><i class="fab fa-linkedin"></i>LinkedIn : <a href="https://www.linkedin.com/company/devonix-com/" target="_blank">Follow us on LinkedIn</a></li>
+    <li>Facebook: <a href="https://www.facebook.com/share/1EzNgNcPyU/" target="_blank">Visit our Facebook Page</a></li>
+ 
+
+  </ul><li>YouTube: <a href="https://www.youtube.com/@devonix.s" target="_blank">Visit our YouTube Channel</a></li>
+  
   </ul>
-                <!-- <p><strong>Phone:</strong> +201158580503</p> -->
-
-                <!-- <div class="social-icons"> -->
-                    <!-- <a href="#" class="social-icon">📘</a> -->
-                    <!-- <a href="#" class="social-icon">🐦</a> -->
-                    <!-- <a href="#" class="social-icon">💼</a> -->
-                <!-- </div> -->
-
-                <!-- <div class="map-placeholder">
-                    <p>Map Placeholder</p>
-                </div> -->
             </div>
 
             <!-- Contact Form -->
-            <form class="contact-form" id="contactForm">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="text" name="company" placeholder="Company" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="tel" name="phone" placeholder="Phone" required>
-                <textarea name="message" placeholder="Message" required></textarea>
+          <div class="form-wrapper">
 
-                <button type="submit" class="btn btn-primary" onclick="openWhatsApp()">
-                    Open WhatsApp
-                </button>
+    <div class="lang-switch">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('ar')">AR</button>
+    </div>
 
-                <!-- <button type="submit" class="btn btn-primary">
-                    Send Message
-                </button> -->
-            </form>
+    <h2 id="formTitle">Contact Us</h2>
+    <p id="formSubtitle">
+        Whether you are a company or a student, we’re happy to hear from you.
+    </p>
+
+    <form id="contactForm">
+
+        <select id="requestType" required>
+            <option value="">I am a...</option>
+            <option value="company">Company – Looking for services</option>
+            <option value="student">Student – Interested in courses</option>
+        </select>
+
+        <input type="text" id="name" placeholder="Full Name" required>
+
+        <input type="text" id="companyField" placeholder="Company Name">
+
+        <input type="email" id="email" placeholder="Email Address" required>
+
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <textarea id="message" placeholder="Tell us more about your needs" required></textarea>
+
+        <div class="actions">
+            <button type="button" onclick="sendWhatsApp()">WhatsApp</button>
+            <!-- <button type="button" class="email-btn" onclick="sendEmail()">Email</button> -->
+        </div>
+
+    </form>
+</div>
+
         </div>
     </div>
 </section>
@@ -390,9 +454,9 @@
             <div class="footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
-                    <a href="#" class="social-icon">📘</a>
-                    <a href="#" class="social-icon">🐦</a>
-                    <a href="#" class="social-icon">💼</a>
+                    <a href="#" class="social-icon">📊</a>
+                    <a href="#" class="social-icon">💻</a>
+                    <a href="#" class="social-icon">🎓</a>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Devonix.ContactAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb259421f32fed9d6305016a34a16df411cd8e0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Devonix.ContactAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Devonix.ContactAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

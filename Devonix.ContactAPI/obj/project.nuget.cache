@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8vCn+r0sqj8=",
+  "dgSpecHash": "+PCxQoLf7eg=",
   "success": true,
-  "projectFilePath": "D:\\projects\\devonix\\Devonix.ContactAPI\\Devonix.ContactAPI.csproj",
+  "projectFilePath": "D:\\DevonixCampany\\devonix\\Devonix.ContactAPI\\Devonix.ContactAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Joe Store\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.7\\microsoft.aspnetcore.openapi.9.0.7.nupkg.sha512",
     "C:\\Users\\Joe Store\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",

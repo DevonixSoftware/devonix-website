@@ -5,12 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================== */
     const header = document.getElementById("header");
     if (header) {
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 100) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
+        window.addEventListener("scroll", () => {
+            header.classList.toggle("sticky", window.scrollY > 100);
         });
     }
 
@@ -19,15 +15,10 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
-
+            const target = document.querySelector(this.getAttribute("href"));
             if (target) {
                 e.preventDefault();
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
             }
         });
     });
@@ -36,96 +27,143 @@ document.addEventListener("DOMContentLoaded", function () {
        EmailJS Init
     ========================== */
     if (typeof emailjs !== "undefined") {
-        emailjs.init("A3W2uS1mSnH0qyBhK");
+        emailjs.init("EMAILJS_PUBLIC_KEY"); // 🔴 ضع Public Key
     }
 
     /* =========================
-       Contact Form
+       Contact Form Logic
     ========================== */
     const form = document.getElementById("contactForm");
+    if (!form) return;
 
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+    const requestType = document.getElementById("requestType");
+    const companyField = document.getElementById("companyField");
+    const messageField = document.getElementById("message");
 
-            const name = form.querySelector('[name="name"]').value.trim();
-            const company = form.querySelector('[name="company"]').value.trim();
-            const email = form.querySelector('[name="email"]').value.trim();
-            const phone = form.querySelector('[name="phone"]').value.trim();
-            const message = form.querySelector('[name="message"]').value.trim();
+    /* ---------- Language ---------- */
+    let currentLang = "en";
 
-            // Validation
-            if (!name || !email || !message) {
-                alert("Please fill in required fields.");
-                return;
-            }
+    const texts = {
+        en: {
+            validation: "Please fill in all required fields.",
+            emailSuccess: "Message sent successfully ✅",
+            emailFail: "Failed to send message ❌",
+            companyMsg: "Tell us about your project or service needs",
+            studentMsg: "Which course are you interested in?"
+        },
+        ar: {
+            validation: "من فضلك املأ جميع الحقول المطلوبة",
+            emailSuccess: "تم إرسال الرسالة بنجاح ✅",
+            emailFail: "فشل إرسال الرسالة ❌",
+            companyMsg: "احكي لنا عن مشروعك أو الخدمة المطلوبة",
+            studentMsg: "ما هو الكورس الذي تهتم به؟"
+        }
+    };
 
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("Invalid email address.");
-                return;
-            }
+    window.setLang = function (lang) {
+        currentLang = lang;
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    };
 
-            const phoneRegex = /^[0-9+\\-\\s()]{6,20}$/;
-            if (phone && !phoneRegex.test(phone)) {
-                alert("Invalid phone number.");
-                return;
-            }
+    /* ---------- Request Type Change ---------- */
+    requestType.addEventListener("change", () => {
+        if (requestType.value === "student") {
+            companyField.classList.add("hidden");
+            companyField.value = "";
+            messageField.placeholder = texts[currentLang].studentMsg;
+        } else if (requestType.value === "company") {
+            companyField.classList.remove("hidden");
+            messageField.placeholder = texts[currentLang].companyMsg;
+        }
+    });
 
-            const submitBtn = form.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = "Sending...";
+    /* =========================
+       Validation
+    ========================== */
+    function validateForm() {
+        const name = form.querySelector("#name").value.trim();
+        const email = form.querySelector("#email").value.trim();
+        const phone = form.querySelector("#phone").value.trim();
+        const message = messageField.value.trim();
 
-            emailjs.sendForm(
-                "service_vo2bik7",
-                "template_fjeesss",
-                form
-            ).then(() => {
-                alert("Message sent successfully ✅");
-                form.reset();
-            }).catch(err => {
-                alert("Failed to send message ❌");
-                console.error(err);
-            }).finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Send Message";
-            });
-        });
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9+\-\s()]{6,20}$/;
+
+        if (!requestType.value || !name || !email || !phone || !message) {
+            alert(texts[currentLang].validation);
+            return false;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert("Invalid email address");
+            return false;
+        }
+
+        if (!phoneRegex.test(phone)) {
+            alert("Invalid phone number");
+            return false;
+        }
+
+        return true;
     }
 
     /* =========================
-       WhatsApp Click to Chat
+       EmailJS Submit
     ========================== */
-    window.openWhatsApp = function () {
-        if (!form) return;
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validateForm()) return;
 
-        const name = form.querySelector('[name="name"]').value.trim();
-        const company = form.querySelector('[name="company"]').value.trim();
-        const email = form.querySelector('[name="email"]').value.trim();
-        const phone = form.querySelector('[name="phone"]').value.trim();
-        const message = form.querySelector('[name="message"]').value.trim();
-
-        if (!name || !email || !message) {
-            alert("Please fill required fields first.");
-            return;
+        const submitBtn = form.querySelector("button[type='submit']");
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
         }
 
-        const text = encodeURIComponent(
-`New Contact Message
-Name: ${name}
-Company: ${company}
-Email: ${email}
-Phone: ${phone}
-------------------
-Message:
-${message}`
-        );
+        emailjs.sendForm(
+            "SERVICE_ID",   // 🔴 Service ID
+            "TEMPLATE_ID",  // 🔴 Template ID
+            form
+        ).then(() => {
+            alert(texts[currentLang].emailSuccess);
+            form.reset();
+        }).catch(err => {
+            console.error(err);
+            alert(texts[currentLang].emailFail);
+        }).finally(() => {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Send Message";
+            }
+        });
+    });
 
-        window.open(`https://wa.me/201064661217?text=${text}`, "_blank");
+    /* =========================
+       WhatsApp
+    ========================== */
+    window.sendWhatsApp = function () {
+        if (!validateForm()) return;
+
+        const name = form.querySelector("#name").value;
+        const company = companyField.value;
+        const email = form.querySelector("#email").value;
+        const phone = form.querySelector("#phone").value;
+        const message = messageField.value;
+
+        const text =
+            requestType.value === "company"
+                ? `Company Inquiry\n\nName: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\n\nDetails:\n${message}`
+                : `Student Course Inquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nInterest:\n${message}`;
+
+        const whatsappNumber = "201064661217"; // 🔴 رقم واتساب
+        window.open(
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
+            "_blank"
+        );
     };
 
     /* =========================
-       Scroll Animation
+       Scroll Animations
     ========================== */
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -134,10 +172,7 @@ ${message}`
                 entry.target.style.transform = "translateY(0)";
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll("section").forEach(section => {
         section.style.opacity = "0";
@@ -147,3 +182,4 @@ ${message}`
     });
 
 });
+

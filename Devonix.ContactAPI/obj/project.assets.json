@@ -187,11 +187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\projects\\devonix\\Devonix.ContactAPI\\Devonix.ContactAPI.csproj",
+      "projectUniqueName": "D:\\DevonixCampany\\devonix\\Devonix.ContactAPI\\Devonix.ContactAPI.csproj",
       "projectName": "Devonix.ContactAPI",
-      "projectPath": "D:\\projects\\devonix\\Devonix.ContactAPI\\Devonix.ContactAPI.csproj",
+      "projectPath": "D:\\DevonixCampany\\devonix\\Devonix.ContactAPI\\Devonix.ContactAPI.csproj",
       "packagesPath": "C:\\Users\\Joe Store\\.nuget\\packages\\",
-      "outputPath": "D:\\projects\\devonix\\Devonix.ContactAPI\\obj\\",
+      "outputPath": "D:\\DevonixCampany\\devonix\\Devonix.ContactAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
