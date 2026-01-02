@@ -182,4 +182,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+// Video & Sound Button
+const video = document.getElementById("heroVideo");
+const soundBtn = document.getElementById("soundToggle");
+
+let soundEnabled = false;
+
+// أول ضغطة في أي مكان تشغل الصوت
+function enableSound() {
+    if (!soundEnabled) {
+        video.muted = false;
+        video.volume = 1;
+        soundEnabled = true;
+        soundBtn.textContent = "🔊";
+    }
+}
+
+// استماع لأول click على الصفحة
+document.addEventListener("click", enableSound, { once: true });
+
+// زر كتم / تشغيل الصوت
+soundBtn.addEventListener("click", function (e) {
+    e.stopPropagation(); // يمنع أول click من التفعيل
+    video.muted = !video.muted;
+    soundBtn.textContent = video.muted ? "🔇" : "🔊";
+});
+
 

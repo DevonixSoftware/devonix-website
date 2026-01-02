@@ -207,27 +207,43 @@ nav ul li a:hover {
 }
 
 /* Hero Section */
+#heroVideo {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain; /* الفيديو كامل بدون قص */
+    display: block;
+    z-index: 1; /* فوق الخلفية */
+}
 .hero {
-    height: 100vh;
+    
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    justify-content: center; /* يخلي الفيديو في النص */
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+
+    /* بدل Gradient الخلفية */
+    background-image: url('images/background.jpeg'); /* حط اسم الصورة هنا */
     background-size: cover;
     background-position: center;
-    position: relative;
-    color: #ffffff;
+    background-repeat: no-repeat;
+    
 }
 
 .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(6,182,212,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('images/background.jpeg'); /* هنا الصورة */
+    background-size: cover;
+    background-position: center;
+    /*filter: blur(15px);  يطلي الخلفية بضبابية لطيفة */
+    z-index: 0; /* تحت الفيديو */
 }
+
 
 .hero-overlay {
     position: absolute;
@@ -263,6 +279,39 @@ nav ul li a:hover {
     gap: 1rem;
     justify-content: center;
 }
+/* Hero Video */
+/* #heroVideo {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: contain;
+    background: rgb(45, 39, 165);
+    display: block;
+} */
+
+/* Sound Button */
+#soundToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#soundToggle:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
 
 /* Sections */
 section {
@@ -639,3 +688,7 @@ section {
 section {
     animation: fadeInUp 0.6s ease-out;
 }
+  /* #heroVideo {
+        max-height: 60vh;
+    } */
+
