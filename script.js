@@ -60,10 +60,39 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    function applyTranslations(lang) {
+        // Translate elements with data-translate attribute
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        // Translate placeholders
+        document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+            const key = element.getAttribute('data-translate-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        });
+
+        // Translate select options
+        document.querySelectorAll('option[data-translate]').forEach(option => {
+            const key = option.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                option.textContent = translations[lang][key];
+            }
+        });
+    }
+
     window.setLang = function (lang) {
         currentLang = lang;
         document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+        applyTranslations(lang);
     };
+
+    // Apply default language on load
 
     /* ---------- Request Type Change ---------- */
     requestType.addEventListener("change", () => {

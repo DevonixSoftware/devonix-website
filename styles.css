@@ -96,18 +96,26 @@ textarea {
 }
 
 .lang-switch {
-    text-align: right;
-    margin-bottom: 10px;
+    display: flex;
+    gap: 5px;
+    margin-left: 1rem;
 }
 
 .lang-switch button {
-    background: none;
-    border: 1px solid #ddd;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
     padding: 6px 12px;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    margin-left: 5px;
     font-size: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.lang-switch button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -214,6 +222,8 @@ nav ul li a:hover {
     object-fit: contain; /* الفيديو كامل بدون قص */
     display: block;
     z-index: 1; /* فوق الخلفية */
+     padding-bottom: 0; 
+    
 }
 .hero {
     
@@ -224,7 +234,7 @@ nav ul li a:hover {
     position: relative;
     overflow: hidden;
     color: #ffffff;
-
+    padding-bottom: 0; 
     /* بدل Gradient الخلفية */
     background-image: url('images/background.jpeg'); /* حط اسم الصورة هنا */
     background-size: cover;
@@ -279,15 +289,6 @@ nav ul li a:hover {
     gap: 1rem;
     justify-content: center;
 }
-/* Hero Video */
-/* #heroVideo {
-    width: 100%;
-    height: auto;
-    max-height: 100vh;
-    object-fit: contain;
-    background: rgb(45, 39, 165);
-    display: block;
-} */
 
 /* Sound Button */
 #soundToggle {
@@ -691,4 +692,49 @@ section {
   /* #heroVideo {
         max-height: 60vh;
     } */
+     /* زر الموبايل */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* موبايل */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block; 
+  }
+
+  header .container {
+    flex-wrap: wrap;
+  }
+
+  header nav {
+    width: 100%;
+    display: none;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    padding: 10px 0;
+  }
+
+  header nav ul li {
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .cta-buttons {
+    display: none;
+  }
+
+  header nav.active {
+    display: block;
+  }
+}
+
 

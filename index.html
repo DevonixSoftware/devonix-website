@@ -29,11 +29,19 @@
     <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
 
+    <!-- Translations -->
+    <script src="translations.js"></script>
+
     <!-- Optional: Additional meta for mobile and theme -->
     <meta name="theme-color" content="#2563eb">
     <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
+<script>
+  function toggleMenu() {
+    document.querySelector('header nav').classList.toggle('active');
+  }
+</script>
 
 <body>
   
@@ -45,22 +53,33 @@
                 <img src="images/logo.png" alt="Devonix Logo" style="height:60px;">
             </a>
         </div>
-        
+
+        <!-- Language Switch Buttons -->
+        <div class="lang-switch">
+            <button onclick="setLang('en')">EN</button>
+            <button onclick="setLang('ar')">عربي</button>
+        </div>
+
+         <!-- Mobile Menu Button -->
+         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
         <nav>
             <ul style="display:flex; gap:15px; list-style:none; margin:0; padding:0;">
-                <li><a href="#home" style="color:white; text-decoration:none;">Home</a></li>
-                <li><a href="#about" style="color:white; text-decoration:none;">About</a></li>
-                <li><a href="#services" style="color:white; text-decoration:none;">Services</a></li>
-                <li><a href="#solutions" style="color:white; text-decoration:none;">Solutions</a></li>
-                <li><a href="#products" style="color:white; text-decoration:none;">Products</a></li>
-                <li><a href="#training" style="color:white; text-decoration:none;">Training</a></li>
-                <li><a href="#contact" style="color:white; text-decoration:none;">Contact</a></li>
+                <li><a href="#home" style="color:white; text-decoration:none;" data-translate="navHome">Home</a></li>
+                <li><a href="#about" style="color:white; text-decoration:none;" data-translate="navAbout">About</a></li>
+                <li><a href="#services" style="color:white; text-decoration:none;" data-translate="navServices">Services</a></li>
+                <li><a href="#solutions" style="color:white; text-decoration:none;" data-translate="navSolutions">Solutions</a></li>
+                <li><a href="#products" style="color:white; text-decoration:none;" data-translate="navProducts">Products</a></li>
+                <li><a href="#training" style="color:white; text-decoration:none;" data-translate="navTraining">Training</a></li>
+                <li><a href="#contact" style="color:white; text-decoration:none;" data-translate="navContact">Contact</a></li>
+                <li class="mobile-cta">
+                <a href="#contact" class="btn btn-primary" data-translate="navRequestDemo">Request a Demo</a></li>
             </ul>
         </nav>
-        <div class="cta-buttons" style="display:flex; gap:10px;">
-            <a href="#contact" class="btn btn-primary">Request a Demo</a>
+        <!-- <div class="cta-buttons" style="display:flex; gap:10px;">
+            <a href="#contact" class="btn btn-primary">Request a Demo</a> -->
             <!-- <a href="#contact" class="btn btn-secondary">Get a Quote</a> -->
-        </div>
+        <!-- </div> -->
     </div>
 </header>
 
@@ -105,8 +124,8 @@
 
         <!-- Header -->
         <div class="enterprise-header" style="text-align:center; margin-bottom:50px;">
-            <h2 style="font-size:2.5rem; margin-bottom:15px; color:#222;">About Devonix</h2>
-            <p style="font-size:1.1rem; color:#555; line-height:1.6;">
+            <h2 style="font-size:2.5rem; margin-bottom:15px; color:#222;" data-translate="aboutTitle">About Devonix</h2>
+            <p style="font-size:1.1rem; color:#555; line-height:1.6;" data-translate="aboutSubtitle">
                 We help organizations build reliable, scalable, and secure digital systems
                 that support long-term growth and digital transformation.
             </p>
@@ -115,52 +134,52 @@
         <!-- Content Blocks -->
         <div class="enterprise-content" style="display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:30px; margin-bottom:50px;">
             <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                <h3 style="color:#222; margin-bottom:10px;">Our Story</h3>
-                <p style="color:#555; line-height:1.6;">
+                <h3 style="color:#222; margin-bottom:10px;" data-translate="ourStoryTitle">Our Story</h3>
+                <p style="color:#555; line-height:1.6;" data-translate="ourStoryText">
                     Founded with a vision to bridge the gap between technology and business needs,
                     Devonix has grown into a trusted provider of enterprise software solutions.
                 </p>
             </div>
 
             <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                <h3 style="color:#222; margin-bottom:10px;">Who We Are</h3>
-                <p style="color:#555; line-height:1.6;">
+                <h3 style="color:#222; margin-bottom:10px;" data-translate="whoWeAreTitle">Who We Are</h3>
+                <p style="color:#555; line-height:1.6;" data-translate="whoWeAreText">
                     Devonix is a technology-driven company delivering enterprise-grade
                     software solutions for businesses of all sizes.
                 </p>
             </div>
 
             <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                <h3 style="color:#222; margin-bottom:10px;">What Makes Us Different</h3>
-                <p style="color:#555; line-height:1.6;">
+                <h3 style="color:#222; margin-bottom:10px;" data-translate="whatMakesUsDifferentTitle">What Makes Us Different</h3>
+                <p style="color:#555; line-height:1.6;" data-translate="whatMakesUsDifferentText">
                     We combine strong engineering practices, modern technologies,
                     and deep business understanding to deliver measurable results.
                 </p>
             </div>
 
             <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                <h3 style="color:#222; margin-bottom:10px;">Company Strengths</h3>
+                <h3 style="color:#222; margin-bottom:10px;" data-translate="companyStrengthsTitle">Company Strengths</h3>
                 <ul style="color:#555; line-height:1.6; padding-left:20px;">
-                    <li>Senior engineers and solution architects</li>
-                    <li>Proven delivery of complex enterprise systems</li>
-                    <li>Secure and scalable architectures</li>
-                    <li>Long-term support and partnership model</li>
+                    <li data-translate="strength1">Senior engineers and solution architects</li>
+                    <li data-translate="strength2">Proven delivery of complex enterprise systems</li>
+                    <li data-translate="strength3">Secure and scalable architectures</li>
+                    <li data-translate="strength4">Long-term support and partnership model</li>
                 </ul>
             </div>
 
             <div class="block" style="background:#f9f9f9; padding:20px; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                <h3 style="color:#222; margin-bottom:10px;">Technology Stack</h3>
-                <p style="color:#555; line-height:1.6;">
+                <h3 style="color:#222; margin-bottom:10px;" data-translate="technologyStackTitle">Technology Stack</h3>
+                <p style="color:#555; line-height:1.6;" data-translate="technologyStackText">
                  🧰 Technology & Engineering Approach
 
               At Devonix, we adopt a **technology-agnostic approach**, leveraging the most suitable tools and frameworks based on each client’s requirements and business objectives.
-              
+
                 Our core technology stack includes:
-              - **Backend & Enterprise Platforms:** .NET (C#), SQL Server, AI / Machine Learning  
-              - **Frontend Technologies:** Angular, React, responsive UI architectures  
-              - **Cloud & Infrastructure:** Microsoft Azure, AWS, cloud-native & hybrid architectures  
-              - **Databases:** SQL Server, NoSQL databases for scalable and secure systems  
-              
+              - **Backend & Enterprise Platforms:** .NET (C#), SQL Server, AI / Machine Learning
+              - **Frontend Technologies:** Angular, React, responsive UI architectures
+              - **Cloud & Infrastructure:** Microsoft Azure, AWS, cloud-native & hybrid architectures
+              - **Databases:** SQL Server, NoSQL databases for scalable and secure systems
+
               We remain flexible to select additional technologies depending on project needs, ensuring future-ready solutions.
                 </p>
             </div>
@@ -209,52 +228,52 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2>Our Services </h2>
+            <h2 data-translate="servicesTitle">Our Services </h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🌐</div>
-                    <h3>Web Applications Development</h3>
-                    <p>Custom web applications built with modern frameworks for optimal performance and user experience.</p>
+                    <h3 data-translate="serviceWebDev">Web Applications Development</h3>
+                    <p data-translate="serviceWebDevDesc">Custom web applications built with modern frameworks for optimal performance and user experience.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📱</div>
-                    <h3>Mobile Applications (iOS & Android)</h3>
-                    <p>Native and cross-platform mobile apps designed to engage users and drive business growth.</p>
+                    <h3 data-translate="serviceMobile">Mobile Applications (iOS & Android)</h3>
+                    <p data-translate="serviceMobileDesc">Native and cross-platform mobile apps designed to engage users and drive business growth.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🤖</div>
-                    <h3>AI Solutions & Machine Learning</h3>
-                    <p>Intelligent solutions leveraging AI and ML to automate processes and provide insights.</p>
+                    <h3 data-translate="serviceAI">AI Solutions & Machine Learning</h3>
+                    <p data-translate="serviceAIDesc">Intelligent solutions leveraging AI and ML to automate processes and provide insights.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🏢</div>
-                    <h3>ERP & Enterprise Management Systems</h3>
-                    <p>Comprehensive ERP systems to streamline business operations and improve efficiency.</p>
+                    <h3 data-translate="serviceERP">ERP & Enterprise Management Systems</h3>
+                    <p data-translate="serviceERPDesc">Comprehensive ERP systems to streamline business operations and improve efficiency.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🔗</div>
-                    <h3>Web APIs Development</h3>
-                    <p>Robust APIs for seamless integration and data exchange between systems.</p>
+                    <h3 data-translate="serviceAPI">Web APIs Development</h3>
+                    <p data-translate="serviceAPIDesc">Robust APIs for seamless integration and data exchange between systems.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📊</div>
-                    <h3>Business Management Systems</h3>
-                    <p>Tailored systems to manage business processes, inventory, and customer relationships.</p>
+                    <h3 data-translate="serviceBusinessMgmt">Business Management Systems</h3>
+                    <p data-translate="serviceBusinessMgmtDesc">Tailored systems to manage business processes, inventory, and customer relationships.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🔄</div>
-                    <h3>Digital Transformation Solutions</h3>
-                    <p>End-to-end digital transformation strategies to modernize your business operations.</p>
+                    <h3 data-translate="serviceDigitalTrans">Digital Transformation Solutions</h3>
+                    <p data-translate="serviceDigitalTransDesc">End-to-end digital transformation strategies to modernize your business operations.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">👥</div>
-                    <h3>CRM Systems</h3>
-                    <p>Customer relationship management systems to enhance customer engagement and retention.</p>
+                    <h3 data-translate="serviceCRM">CRM Systems</h3>
+                    <p data-translate="serviceCRMDesc">Customer relationship management systems to enhance customer engagement and retention.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🎓</div>
-                    <h3>Technical Courses & Professional Diplomas</h3>
-                    <p>Comprehensive training programs to upskill your team in the latest technologies.</p>
+                    <h3 data-translate="serviceTraining">Technical Courses & Professional Diplomas</h3>
+                    <p data-translate="serviceTrainingDesc">Comprehensive training programs to upskill your team in the latest technologies.</p>
                 </div>
             </div>
         </div>
@@ -263,35 +282,35 @@
     <!-- Solutions Section -->
     <section id="solutions" class="solutions">
         <div class="container">
-            <h2>Solutions</h2>
+            <h2 data-translate="solutionsTitle">Solutions</h2>
             <div class="solutions-grid">
                 <div class="solution-item">
-                    <h3>Corporate ERP</h3>
-                    <p>Integrated enterprise resource planning systems designed for large corporations, providing comprehensive management of business processes, resources, and operations.</p>
+                    <h3 data-translate="solutionERP">Corporate ERP</h3>
+                    <p data-translate="solutionERPDesc">Integrated enterprise resource planning systems designed for large corporations, providing comprehensive management of business processes, resources, and operations.</p>
                 </div>
                 <div class="solution-item">
-                    <h3>Inventory & Sales</h3>
-                    <p>Advanced inventory management and sales tracking solutions to optimize stock levels, streamline sales processes, and improve supply chain efficiency.</p>
+                    <h3 data-translate="solutionInventory">Inventory & Sales</h3>
+                    <p data-translate="solutionInventoryDesc">Advanced inventory management and sales tracking solutions to optimize stock levels, streamline sales processes, and improve supply chain efficiency.</p>
                 </div>
                 <div class="solution-item">
-                    <h3>HR & Payroll</h3>
-                    <p>Human resources and payroll management systems that automate employee data, attendance, performance tracking, and payroll calculations.</p>
+                    <h3 data-translate="solutionHR">HR & Payroll</h3>
+                    <p data-translate="solutionHRDesc">Human resources and payroll management systems that automate employee data, attendance, performance tracking, and payroll calculations.</p>
                 </div>
                 <div class="solution-item">
-                    <h3>Accounting & Financial Control</h3>
-                    <p>Comprehensive financial management solutions including accounting, budgeting, financial reporting, and compliance tracking for businesses.</p>
+                    <h3 data-translate="solutionAccounting">Accounting & Financial Control</h3>
+                    <p data-translate="solutionAccountingDesc">Comprehensive financial management solutions including accounting, budgeting, financial reporting, and compliance tracking for businesses.</p>
                 </div>
                 <div class="solution-item">
-                    <h3>CRM + Marketing Automation</h3>
-                    <p>Customer relationship management combined with marketing automation tools to nurture leads, personalize communications, and drive sales growth.</p>
+                    <h3 data-translate="solutionCRM">CRM + Marketing Automation</h3>
+                    <p data-translate="solutionCRMDesc">Customer relationship management combined with marketing automation tools to nurture leads, personalize communications, and drive sales growth.</p>
                 </div>
                 <div class="solution-item">
-                    <h3>Business Intelligence & Dashboards</h3>
-                    <p>Interactive dashboards and business intelligence tools that provide real-time insights, data visualization, and decision-making support.</p>
+                    <h3 data-translate="solutionBI">Business Intelligence & Dashboards</h3>
+                    <p data-translate="solutionBIDesc">Interactive dashboards and business intelligence tools that provide real-time insights, data visualization, and decision-making support.</p>
                 </div>
                 <div class="solution-item">
-                    <h3>Cloud & Infrastructure Solutions</h3>
-                    <p>Cloud migration, infrastructure management, and scalable cloud solutions to ensure high availability, security, and cost-efficiency.</p>
+                    <h3 data-translate="solutionCloud">Cloud & Infrastructure Solutions</h3>
+                    <p data-translate="solutionCloudDesc">Cloud migration, infrastructure management, and scalable cloud solutions to ensure high availability, security, and cost-efficiency.</p>
                 </div>
             </div>
         </div>
@@ -302,21 +321,21 @@
         <div class="container">
             <div class="vmv-grid">
                 <div class="vmv-item">
-                    <h3>Vision</h3>
-                    <p>To be the most trusted technology partner delivering modern, reliable, and efficient solutions that enable a strong digital future.</p>
+                    <h3 data-translate="visionTitle">Vision</h3>
+                    <p data-translate="visionText">To be the most trusted technology partner delivering modern, reliable, and efficient solutions that enable a strong digital future.</p>
                 </div>
                 <div class="vmv-item">
-                    <h3>Mission</h3>
-                    <p>Deliver high-quality, scalable, secure, user-friendly software built with the latest technologies that make a real impact on business performance.</p>
+                    <h3 data-translate="missionTitle">Mission</h3>
+                    <p data-translate="missionText">Deliver high-quality, scalable, secure, user-friendly software built with the latest technologies that make a real impact on business performance.</p>
                 </div>
                 <div class="vmv-item">
-                    <h3>Core Values</h3>
+                    <h3 data-translate="coreValuesTitle">Core Values</h3>
                     <ul>
-                        <li><strong>Innovation:</strong> Constantly pushing boundaries with cutting-edge solutions</li>
-                        <li><strong>Quality:</strong> Delivering excellence in every project we undertake</li>
-                        <li><strong>Security:</strong> Ensuring data protection and system integrity</li>
-                        <li><strong>Commitment:</strong> Dedicated to our clients' success and satisfaction</li>
-                        <li><strong>Transparency:</strong> Open communication and honest partnerships</li>
+                        <li><strong data-translate="innovationTitle">Innovation:</strong> <span data-translate="innovationDesc">Constantly pushing boundaries with cutting-edge solutions</span></li>
+                        <li><strong data-translate="qualityTitle">Quality:</strong> <span data-translate="qualityDesc">Delivering excellence in every project we undertake</span></li>
+                        <li><strong data-translate="securityTitle">Security:</strong> <span data-translate="securityDesc">Ensuring data protection and system integrity</span></li>
+                        <li><strong data-translate="commitmentTitle">Commitment:</strong> <span data-translate="commitmentDesc">Dedicated to our clients' success and satisfaction</span></li>
+                        <li><strong data-translate="transparencyTitle">Transparency:</strong> <span data-translate="transparencyDesc">Open communication and honest partnerships</span></li>
                     </ul>
                 </div>
             </div>
@@ -326,31 +345,31 @@
     <!-- Training & Diplomas Section -->
     <section id="training" class="training">
         <div class="container">
-            <h2>Training & Diplomas</h2>
+            <h2 data-translate="trainingTitle">Training & Diplomas</h2>
             <div class="training-grid">
                 <div class="training-item">
-                    <h3>Web Development Diploma</h3>
-                    <p>Comprehensive training in front-end and back-end web development technologies, including HTML, CSS, JavaScript, and popular frameworks.</p>
+                    <h3 data-translate="webDevDiploma">Web Development Diploma</h3>
+                    <p data-translate="webDevDiplomaDesc">Comprehensive training in front-end and back-end web development technologies, including HTML, CSS, JavaScript, and popular frameworks.</p>
                 </div>
                 <div class="training-item">
-                    <h3>Mobile Development Diploma</h3>
-                    <p>Hands-on training in iOS and Android app development, covering native development, cross-platform frameworks, and app store deployment.</p>
+                    <h3 data-translate="mobileDevDiploma">Mobile Development Diploma</h3>
+                    <p data-translate="mobileDevDiplomaDesc">Hands-on training in iOS and Android app development, covering native development, cross-platform frameworks, and app store deployment.</p>
                 </div>
                 <div class="training-item">
-                    <h3>AI Diploma</h3>
-                    <p>Advanced training in artificial intelligence, machine learning algorithms, data science, and practical AI implementation.</p>
+                    <h3 data-translate="aiDiploma">AI Diploma</h3>
+                    <p data-translate="aiDiplomaDesc">Advanced training in artificial intelligence, machine learning algorithms, data science, and practical AI implementation.</p>
                 </div>
                 <div class="training-item">
-                    <h3>.NET & Full Stack Programs</h3>
-                    <p>In-depth courses on .NET ecosystem, full-stack development, database design, and modern web application architecture.</p>
+                    <h3 data-translate="netFullStack">.NET & Full Stack Programs</h3>
+                    <p data-translate="netFullStackDesc">In-depth courses on .NET ecosystem, full-stack development, database design, and modern web application architecture.</p>
                 </div>
                 <div class="training-item">
-                    <h3>Corporate Training</h3>
-                    <p>Customized training programs for organizations, focusing on specific technologies, team upskilling, and digital transformation.</p>
+                    <h3 data-translate="corporateTraining">Corporate Training</h3>
+                    <p data-translate="corporateTrainingDesc">Customized training programs for organizations, focusing on specific technologies, team upskilling, and digital transformation.</p>
                 </div>
                 <div class="training-item">
-                    <h3>Real Projects Practical Training</h3>
-                    <p>Practical, project-based learning where participants work on real-world scenarios, building portfolios and gaining industry experience.</p>
+                    <h3 data-translate="realProjectsTraining">Real Projects Practical Training</h3>
+                    <p data-translate="realProjectsTrainingDesc">Practical, project-based learning where participants work on real-world scenarios, building portfolios and gaining industry experience.</p>
                 </div>
             </div>
         </div>
@@ -360,62 +379,57 @@
 
 <section id="contact" class="contact">
     <div class="container">
-        <h2>Contact Us</h2>
+        <h2 data-translate="contactTitle">Contact Us</h2>
 
         <div class="contact-content">
             <!-- Contact Info -->
             <div class="contact-info">
                 <ul>
-    
-    <li><i class="fas fa-phone"></i>Phone & WhatsApp : <a href="tel:+201064661217">+20 106 466 1217</a></li>
-    <li><i class="fas fa-envelope"></i> Email : <a href="mailto:devonix.com@gmail.com">devonix.com@gmail.com</a></li>
-    <li> GitHub Organization:
+
+    <li><i class="fas fa-phone"></i><span data-translate="phoneLabel">Phone & WhatsApp :</span> <a href="tel:+201064661217">+20 106 466 1217</a></li>
+    <li><i class="fas fa-envelope"></i> <span data-translate="emailLabel">Email :</span> <a href="mailto:devonix.com@gmail.com">devonix.com@gmail.com</a></li>
+    <li> <span data-translate="githubLabel">GitHub Organization:</span>
   <a href="https://github.com/DevonixSoftware" target="_blank">
     github.com/DevonixSoftware
   </a>
 </li>
-    <li><i class="fab fa-linkedin"></i>LinkedIn : <a href="https://www.linkedin.com/company/devonix-com/" target="_blank">Follow us on LinkedIn</a></li>
-    <li>Facebook: <a href="https://www.facebook.com/share/1EzNgNcPyU/" target="_blank">Visit our Facebook Page</a></li>
- 
+    <li><i class="fab fa-linkedin"></i><span data-translate="linkedinLabel">LinkedIn :</span> <a href="https://www.linkedin.com/company/devonix-com/" target="_blank"><span data-translate="linkedinText">Follow us on LinkedIn</span></a></li>
+    <li><span data-translate="facebookLabel">Facebook:</span> <a href="https://www.facebook.com/share/1EzNgNcPyU/" target="_blank"><span data-translate="facebookText">Visit our Facebook Page</span></a></li>
 
-  </ul><li>YouTube: <a href="https://www.youtube.com/@devonix.s" target="_blank">Visit our YouTube Channel</a></li>
-  
+
+  </ul><li><span data-translate="youtubeLabel">YouTube:</span> <a href="https://www.youtube.com/@devonix.s" target="_blank"><span data-translate="youtubeText">Visit our YouTube Channel</span></a></li>
+
   </ul>
             </div>
 
             <!-- Contact Form -->
           <div class="form-wrapper">
 
-    <div class="lang-switch">
-        <button onclick="setLang('en')">EN</button>
-        <button onclick="setLang('ar')">AR</button>
-    </div>
-
-    <h2 id="formTitle">Contact Us</h2>
-    <p id="formSubtitle">
+    <h2 id="formTitle" data-translate="formTitle">Contact Us</h2>
+    <p id="formSubtitle" data-translate="formSubtitle">
         Whether you are a company or a student, we’re happy to hear from you.
     </p>
 
     <form id="contactForm">
 
         <select id="requestType" required>
-            <option value="">I am a...</option>
-            <option value="company">Company – Looking for services</option>
-            <option value="student">Student – Interested in courses</option>
+            <option value="" data-translate="selectOption">I am a...</option>
+            <option value="company" data-translate="companyOption">Company – Looking for services</option>
+            <option value="student" data-translate="studentOption">Student – Interested in courses</option>
         </select>
 
-        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="name" placeholder="Full Name" required data-translate-placeholder="namePlaceholder">
 
-        <input type="text" id="companyField" placeholder="Company Name">
+        <input type="text" id="companyField" placeholder="Company Name" data-translate-placeholder="companyPlaceholder">
 
-        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="email" id="email" placeholder="Email Address" required data-translate-placeholder="emailPlaceholder">
 
-        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required data-translate-placeholder="phonePlaceholder">
 
-        <textarea id="message" placeholder="Tell us more about your needs" required></textarea>
+        <textarea id="message" placeholder="Tell us more about your needs" required data-translate-placeholder="messagePlaceholder"></textarea>
 
         <div class="actions">
-            <button type="button" onclick="sendWhatsApp()">WhatsApp</button>
+            <button type="button" onclick="sendWhatsApp()" data-translate="whatsappButton">WhatsApp</button>
             <!-- <button type="button" class="email-btn" onclick="sendEmail()">Email</button> -->
         </div>
 
@@ -433,52 +447,52 @@
         <div class="footer-content">
             <div class="footer-section">
                 <div class="footer-logo">
-                    <h4>Devonix</h4> 
-                    <h4>Empowering Digital Futures</h4>
+                    <h4 data-translate="footerDevonix">Devonix</h4>
+                    <h4 data-translate="footerTagline">Empowering Digital Futures</h4>
                 </div>
             </div>
 
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4 data-translate="footerQuickLinks">Quick Links</h4>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" data-translate="footerHome">Home</a></li>
+                    <li><a href="#about" data-translate="footerAbout">About</a></li>
+                    <li><a href="#services" data-translate="footerServices">Services</a></li>
+                    <li><a href="#contact" data-translate="footerContact">Contact</a></li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h4>Services</h4>
+                <h4 data-translate="footerServicesTitle">Services</h4>
                 <ul>
-                    <li>Web Development</li>
-                    <li>Mobile Apps</li>
-                    <li>AI Solutions</li>
-                    <li>ERP Systems</li>
-                    <li>Digital Transformation</li>
+                    <li data-translate="footerWebDev">Web Development</li>
+                    <li data-translate="footerMobileApps">Mobile Apps</li>
+                    <li data-translate="footerAISolutions">AI Solutions</li>
+                    <li data-translate="footerERPSys">ERP Systems</li>
+                    <li data-translate="footerDigitalTrans">Digital Transformation</li>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h4>Follow Us</h4>
+                <h4 data-translate="footerFollowUs">Follow Us</h4>
                 <div class="social-icons">
-                    <a href="#" class="social-icon">📊</a>
-                    <a href="#" class="social-icon">💻</a>
-                    <a href="#" class="social-icon">🎓</a>
+                    <a href="#" class="social-icon" data-translate="footerLinkedInIcon">📊</a>
+                    <a href="#" class="social-icon" data-translate="footerGitHubIcon">💻</a>
+                    <a href="#" class="social-icon" data-translate="footerYouTubeIcon">🎓</a>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Devonix. All rights reserved.</p>
+            <p data-translate="footerCopyright">&copy; 2026 Devonix. All rights reserved.</p>
 
             <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a href="#" data-translate="footerPrivacy">Privacy Policy</a>
+                <a href="#" data-translate="footerTerms">Terms of Service</a>
             </div>
 
             <div class="footer-contact">
-                <h3>Email: devonix.com@gmail.com | Phone: +201064661217</h3>
+                <h3 data-translate="footerContactInfo">Email: devonix.com@gmail.com | Phone: +201064661217</h3>
             </div>
         </div>
     </div>
